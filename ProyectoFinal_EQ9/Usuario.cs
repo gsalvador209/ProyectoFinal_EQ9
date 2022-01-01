@@ -24,15 +24,15 @@ namespace ProyectoPOO
         //***Setters y Getters
         protected void SetRol(int rol){   this.rol = rol;}
         virtual public void SetNombre() { 
-            this.nombre = Solicitar("Ingrese el nombre de usuario."); 
+            this.nombre = Solicitar(" Ingrese el nombre de usuario: "); 
         }
         public void SetUsuario()
         {
-            this.usuario = Solicitar("Ingrese un username.");
+            this.usuario = Solicitar(" Ingrese un username: ");
         }
         public void SetContraseña()
         {
-            this.contraseña = Solicitar("Ingrese una nueva constraseña");
+            this.contraseña = Solicitar(" Ingrese una nueva constraseña: ");
         }
 
         public int GetRol() { 

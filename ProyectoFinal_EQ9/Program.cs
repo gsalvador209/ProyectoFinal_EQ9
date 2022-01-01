@@ -10,6 +10,10 @@ namespace ProyectoPOO
         static void Main(string[] args)
         {
             int op,repetir,correcto = 0;
+            Superadmin sa = new Superadmin();
+            Admin ad = new Admin();
+            Empresa emp = new Empresa();
+
             do
             {
                 Console.Clear();
@@ -60,6 +64,7 @@ namespace ProyectoPOO
                                             break;
                                         case 1:
                                             //MENU DE SUPERADMIN
+
                                             correcto = 1;
                                             break;
                                         case 2:
@@ -121,34 +126,45 @@ namespace ProyectoPOO
                 Console.Write("\n Presione Enter para continuar....");
                 Console.ReadLine();
             } while (repetir == 1);
-        }
-        static int iniciarSesion()
-        {
-            Usuario user = new Usuario();
-            String username,pasword;
-            Console.Write("\n Username: ");
-            username = Console.ReadLine();
-            Console.Write("\n Contraseña: ");
-            pasword = Console.ReadLine();
 
-            //BUSCA EN QUE ARCHIVO SE ECUENTRA EL USUARIO EN CASO CONTRARIO REGRESA UN 0
-            if (user.VerificarUsuarioyContraseña(username, pasword, "superadmin.txt", 1))
+            int iniciarSesion()
             {
-                Console.WriteLine("\n Bienvenido SuperAdmin");
-                return 1;
+                Usuario user = new Usuario();
+                String username, pasword,usuarioSerializado;
+                Console.Write("\n Username: ");
+                username = Console.ReadLine();
+                Console.Write("\n Contraseña: ");
+                pasword = Console.ReadLine();
+
+                //BUSCA EN QUE ARCHIVO SE ECUENTRA EL USUARIO EN CASO CONTRARIO REGRESA UN 0
+                if (user.VerificarUsuarioyContraseña(username, pasword, "superadmin.txt", 1))
+                {
+                    
+                    usuarioSerializado = user.GetStringLine(user.GetLine(username,"superadmin.txt"),"superadmin.txt");
+                    sa.DesSerializar(usuarioSerializado);
+
+                    Console.WriteLine("\n Bienvenidx superadministrador, " + sa.GetNombre());
+                    return 1;
+                }
+                else if (user.VerificarUsuarioyContraseña(username, pasword, "admin.txt", 2))
+                {
+                    usuarioSerializado = user.GetStringLine(user.GetLine(username, "admin.txt"), "admin.txt");
+                    ad.DesSerializar(usuarioSerializado);
+
+                    Console.WriteLine("\n Bienvenidx administrador, " + ad.GetNombre());
+                    return 2;
+                }
+                else if (user.VerificarUsuarioyContraseña(username, pasword, "empresa.txt", 3))
+                {
+                    usuarioSerializado = user.GetStringLine(user.GetLine(username, "empresa.txt"), "empresa.txt");
+                    emp.DesSerializar(usuarioSerializado);
+                    Console.WriteLine("\n Bienvenidx, " + emp.GetNombre());
+                    return 3;
+                }
+                return 0;
             }
-            else if (user.VerificarUsuarioyContraseña(username, pasword, "admin.txt", 2))
-            {
-                Console.WriteLine("\n Bienvenido Admin");
-                return 2;
-            }
-            else if (user.VerificarUsuarioyContraseña(username, pasword, "empresa.txt", 3))
-            {
-                Console.WriteLine("\n Bienvenido Empresa ");
-                return 3;
-            }
-            return 0;
         }
+
         static void crearCuenta()
         {
 

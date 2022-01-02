@@ -127,7 +127,6 @@ namespace ProyectoPOO
             }
             catch
             {
-                Console.WriteLine();
             }
             return false;
         }

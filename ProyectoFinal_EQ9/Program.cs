@@ -121,6 +121,7 @@ namespace ProyectoPOO
                                             switch (iniciarSesion(username, pasword))
                                             {
                                                 case 0:
+                                                    Console.WriteLine();
                                                     Console.BackgroundColor = ConsoleColor.Red;
                                                     Console.WriteLine(" Los datos ingresados son incorrectos");
                                                     Console.ResetColor();
@@ -192,10 +193,7 @@ namespace ProyectoPOO
             Empresa emp = new Empresa();
             Usuario user = new Usuario();
             String usuarioSerializado;
-            Console.Write("\n Username: ");
-            username = Console.ReadLine();
-            Console.Write("\n Contraseña: ");
-            pasword = Console.ReadLine();
+
 
             //BUSCA EN QUE ARCHIVO SE ECUENTRA EL USUARIO EN CASO CONTRARIO REGRESA UN 0
             if (user.VerificarUsuarioyContraseña(username, pasword, "superadmin.txt", 1))

@@ -27,17 +27,17 @@ namespace ProyectoPOO
         }
         public void SetNombre()
         {
-            this.nombre = Solicitar("Ingrese el nombre del representante.");
+            this.nombre = Solicitar(" Ingrese el nombre del representante: ");
         }
 
         public void SetCelular()
         {
-            this.celular = Solicitar("Ingrese el teléfono celular");
+            this.celular = Solicitar(" Ingrese el teléfono celular: ");
         }
 
         public void SetEmail()
         {
-            this.email = Solicitar("Ingrese el email");
+            this.email = Solicitar(" Ingrese el email: ");
         }
 
         public string GetNombre()

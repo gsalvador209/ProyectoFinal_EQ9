@@ -19,7 +19,7 @@ namespace ProyectoPOO
         //*****MÉTODOS*****
         override public void SetNombre()
         {
-            this.nombre = Solicitar("Ingrese el nombre de la empresa.");
+            this.nombre = Solicitar("Ingrese el nombre de la empresa: ");
         }
 
         
@@ -36,8 +36,6 @@ namespace ProyectoPOO
 
                 return;
             }
-            Console.WriteLine("Empresa registrada correctamente.");
-
         }
         
         public void DesSerializar(string texto)

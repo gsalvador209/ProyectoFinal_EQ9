@@ -149,7 +149,7 @@ namespace ProyectoPOO
                                                     {
                                                         correcto = 1;
                                                     }
-                                                    else if (op == 0)
+                                                    else if (op == 2)
                                                     {
                                                         correcto = 0;
                                                     }
@@ -172,6 +172,7 @@ namespace ProyectoPOO
                         repetir = 1;
                         break;
                     case 2:
+                        // SALE DEL PROGRAMA
                         Console.BackgroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("\n Saliendo del programa...");
                         Console.ResetColor();
@@ -240,6 +241,10 @@ namespace ProyectoPOO
             empresa.rep.SetCelular();
             Console.WriteLine();
             empresa.Serializar("empresas.txt");
+
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.WriteLine(" Empresa registrada exitosamente !!!");
+            Console.ResetColor();
         }
         static void menuEmpresa(string user)
         {

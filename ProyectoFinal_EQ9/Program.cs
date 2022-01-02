@@ -156,7 +156,7 @@ namespace ProyectoPOO
                                                     break;
                                                 case 3:
                                                     // MENU EMPRESA
-                                                    menuEmpresa(username);
+                                                    menuEmpresa(username,pasword);
                                                     correcto = 1;
                                                     break;
                                             }
@@ -202,6 +202,10 @@ namespace ProyectoPOO
                     sa.DesSerializar(usuarioSerializado);
 
                     Console.WriteLine("\n Bienvenidx superadministrador, " + sa.GetNombre());
+                    Console.BackgroundColor = ConsoleColor.DarkGray;
+                    Console.Write("\n Presione Enter para continuar....");
+                    Console.ResetColor();
+                    Console.ReadLine();
                     return 1;
                 }
                 else if (user.VerificarUsuarioyContraseña(un, ps, "admin.txt", 2))
@@ -210,6 +214,10 @@ namespace ProyectoPOO
                     ad.DesSerializar(usuarioSerializado);
 
                     Console.WriteLine("\n Bienvenidx administrador, " + ad.GetNombre());
+                    Console.BackgroundColor = ConsoleColor.DarkGray;
+                    Console.Write("\n Presione Enter para continuar....");
+                    Console.ResetColor();
+                    Console.ReadLine();
                     return 2;
                 }
                 else if (user.VerificarUsuarioyContraseña(un, ps, "empresas.txt", 3))
@@ -217,6 +225,10 @@ namespace ProyectoPOO
                     usuarioSerializado = user.GetStringLine(user.GetLine(un, "empresas.txt"), "empresas.txt");
                     emp.DesSerializar(usuarioSerializado);
                     Console.WriteLine("\n Bienvenidx, " + emp.rep.GetNombre());
+                    Console.BackgroundColor = ConsoleColor.DarkGray;
+                    Console.Write("\n Presione Enter para continuar....");
+                    Console.ResetColor();
+                    Console.ReadLine();
                     return 3;
                 }
                 return 0;
@@ -245,10 +257,11 @@ namespace ProyectoPOO
             Console.WriteLine(" Empresa registrada exitosamente !!!");
             Console.ResetColor();
         }
-        static void menuEmpresa(string user)
+        static void menuEmpresa(string user,string pasword)
         {
             Empresa emp = new Empresa();
             int repetir = 0, op;
+            string email = "", celular = "", nombre = "", empresa = "";
 
             emp = emp.infoUser(user);
 
@@ -283,6 +296,41 @@ namespace ProyectoPOO
                     switch (op)
                     {
                         case 1:
+                            Console.Clear();
+                            Console.Write("\n Seleccione el dato que quiere actualizar: \n\n\t");
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.Write("(1)");
+                            Console.ResetColor();
+                            Console.Write(" Nombre Empresa\n\n\t");
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.Write("(2)");
+                            Console.ResetColor();
+                            Console.Write(" Username\n\n\t");
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.Write("(3)");
+                            Console.ResetColor();
+                            Console.Write(" Contraseña\n\n\t");
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.Write("(4)");
+                            Console.ResetColor();
+                            Console.WriteLine(" Nombre Representante\n\n\t");
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.Write("(5)");
+                            Console.ResetColor();
+                            Console.WriteLine(" Email\n\n\t");
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.Write("(6)");
+                            Console.ResetColor();
+                            Console.WriteLine(" Celular\n");
+                            Console.Write(" Opcion: ");
+                            op = Convert.ToInt32(Console.ReadLine());
+
+                            email = emp.rep.GetEmail();
+                            celular = emp.rep.GetCelular();
+                            nombre = emp.rep.GetNombre();
+                            empresa = emp.GetNombre();
+                            emp.DeleteLine(emp.GetLine(user, "empresas.txt"), "empresas.txt");
+
                             break;
                         case 2:
                             break;
@@ -294,8 +342,6 @@ namespace ProyectoPOO
                     }
                 } while (repetir == 0);
             }
-
-            Console.ReadLine();
         }
     }
 }

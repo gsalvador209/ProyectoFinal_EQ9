@@ -176,6 +176,13 @@ namespace ProyectoPOO
                         Console.BackgroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("\n Saliendo del programa...");
                         Console.ResetColor();
+                        Console.WriteLine("\n\nProyecto Final\nProgramación Orientada a Objetos"
+                            + "\nGrupo 09 \nSemestre 2021-2 \nEquipo 9 \nIntegates:");
+                        Console.WriteLine("1. Chávez Villanueva Giovanni Salvador\n" +
+                            "2. Nava Alberto Vanessa\n" +
+                            "3. Perez Lagunas Bernardo\n" +
+                            "4. Pilares Garcia Heber Adan\n" +
+                            "5. Quero Bautista Yaxca Alexa\n");
                         repetir = 0;
                         break;
                     default:

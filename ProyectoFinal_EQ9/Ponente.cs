@@ -13,14 +13,20 @@ namespace ProyectoPOO
         private int numeroSala; // número de la sala de la conferencia
         private int aforoConferencia; // número de personas que fueren asistir a la conferencia.
 
+        private String horarioConferencia;
+
+        public Ponente(String nombrePonente, String nombreConferencia, String tiempoConferencia, int numeroSala, String horario, int aforoConferencia)
+        {
+            this.nombrePonente = nombrePonente;
+            this.nombreConferencia = nombreConferencia;
+            this.tiempoConferencia = tiempoConferencia;
+            this.numeroSala = numeroSala;
+            this.horarioConferencia = horario;
+            this.aforoConferencia = aforoConferencia;
+        }
         public String getTiempoConferencia()
         {
             return this.tiempoConferencia;
-        }
-
-        public void setTiempoConferencia(String tiempoConferencia)
-        {
-            this.tiempoConferencia = tiempoConferencia;
         }
 
         public int getNumeroSala()
@@ -28,42 +34,29 @@ namespace ProyectoPOO
             return this.numeroSala;
         }
 
-        public void setNumeroSala(int numeroSala)
-        {
-            this.numeroSala = numeroSala;
-        }
-
         public int getAforoConferencia()
         {
             return this.aforoConferencia;
         }
-
-        public void setAforoConferencia(int aforoConferencia)
-        {
-            this.aforoConferencia = aforoConferencia;
-        }
-
-
-
         public String getNombrePonente()
         {
             return this.nombrePonente;
         }
 
-        public void setNombrePonente(String nombrePonente)
-        {
-            this.nombrePonente = nombrePonente;
-        }
 
         public String getNombreConferencia()
         {
             return this.nombreConferencia;
         }
 
-        public void setNombreConferencia(String nombreConferencia)
+        public String toString()
         {
-            this.nombreConferencia = nombreConferencia;
+            return "\n" + "Nombre Ponente: " + this.nombrePonente + "\n" +
+                   "Nombre Conferencia: " + this.nombreConferencia + "\n" +
+                   "Tiempo de Conferencia: " + this.tiempoConferencia + "\n" +
+                   "Numero de Sala: " + this.numeroSala + "\n" +
+                   "Aforo: " + this.aforoConferencia + "\n" +
+                   "Horario: " + this.horarioConferencia + "\n";
         }
-
     }
 }

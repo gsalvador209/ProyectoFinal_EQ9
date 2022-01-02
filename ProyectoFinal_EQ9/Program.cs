@@ -20,15 +20,15 @@ namespace ProyectoPOO
             do
             {
                 Console.Clear();
-                Console.Write("\n ¿Quieres iniciar sesion?\n\n\t");
+                Console.Write("\n\n\n\t");
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
                 Console.Write("(1)");
                 Console.ResetColor();
-                Console.Write(" Si\t");
+                Console.Write(" Iniciar sesión\t");
                 Console.BackgroundColor = ConsoleColor.DarkCyan;
                 Console.Write("(2)");
                 Console.ResetColor();
-                Console.Write(" No\n\n");
+                Console.Write(" Salir y Acerca De\n\n");
                 Console.Write("Opcion: ");
                 op = Convert.ToInt32(Console.ReadLine());
                 switch (op)

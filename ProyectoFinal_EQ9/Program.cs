@@ -280,11 +280,6 @@ namespace ProyectoPOO
                     Console.WriteLine(" Salir\n");
                     Console.Write(" Opcion: ");
                     op = Convert.ToInt32(Console.ReadLine());
-                    Console.Write(" (1) Actualizar Datos\n\n" +
-                        " (2) Reservar Horario\n\n" +
-                        " (3) Ver Horarios\n\n" +
-                        " (4) Salir\n\nOpcion: ");
-                    op = Convert.ToInt32(Console.ReadLine());
                     switch (op)
                     {
                         case 1:

@@ -1,0 +1,2 @@
+superadmin|0000|ejempl@gmail.com|0|administración|admin123|12345
+CEC UNAM|0000|CEC@unam.mx|0|Administración|CECAdmon|C3C&2116unam_4d00ñ

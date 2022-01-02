@@ -78,5 +78,20 @@ namespace ProyectoPOO
                 return null;
             }
         }
+        public void ActualizarInfo(string empresa, string nombre, string email, string celular, string username, string pasword)
+        {
+            this.nombre = empresa;
+            this.rep.nombre = nombre;
+            this.rep.celular = celular;
+            this.rep.email = email;
+            this.usuario = username;
+            this.contraseña = pasword;
+
+            Serializar("empresas.txt");
+
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n Los datos han sido actualizados correctamente");
+            Console.ResetColor();
+        }
     }
 }

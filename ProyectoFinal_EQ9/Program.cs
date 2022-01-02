@@ -20,7 +20,7 @@ namespace ProyectoPOO
             do
             {
                 Console.Clear();
-                Console.Write("\n\n\n\t");
+                Console.Write("\n\n\t");
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
                 Console.Write("(1)");
                 Console.ResetColor();
@@ -328,10 +328,39 @@ namespace ProyectoPOO
                             Console.BackgroundColor = ConsoleColor.Magenta;
                             Console.Write("(6)");
                             Console.ResetColor();
-                            Console.Write(" Celular\n");
+                            Console.WriteLine(" Celular\n");
                             Console.Write(" Opcion: ");
                             op = Convert.ToInt32(Console.ReadLine());
-
+                            switch (op)
+                            {
+                                case 1:
+                                    emp.SetNombre();
+                                    break;
+                                case 2:
+                                    emp.SetUsuario();
+                                    break;
+                                case 3:
+                                    emp.SetContraseña();
+                                    break;
+                                case 4:
+                                    emp.rep.SetNombre();
+                                    break;
+                                case 5:
+                                    emp.rep.SetEmail();
+                                    break;
+                                case 6:
+                                    emp.rep.SetCelular();
+                                    break;
+                                default:
+                                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                                    Console.WriteLine("\n Dato no valido ingresalo de nuevo.");
+                                    Console.ResetColor();
+                                    Console.BackgroundColor = ConsoleColor.DarkGray;
+                                    Console.Write("\n Presione Enter para continuar....");
+                                    Console.ResetColor();
+                                    Console.ReadLine();
+                                    break;
+                            }
                             email = emp.rep.GetEmail();
                             celular = emp.rep.GetCelular();
                             nombre = emp.rep.GetNombre();

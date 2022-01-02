@@ -320,15 +320,15 @@ namespace ProyectoPOO
                             Console.BackgroundColor = ConsoleColor.Magenta;
                             Console.Write("(4)");
                             Console.ResetColor();
-                            Console.WriteLine(" Nombre Representante\n\n\t");
+                            Console.Write(" Nombre Representante\n\n\t");
                             Console.BackgroundColor = ConsoleColor.Magenta;
                             Console.Write("(5)");
                             Console.ResetColor();
-                            Console.WriteLine(" Email\n\n\t");
+                            Console.Write(" Email\n\n\t");
                             Console.BackgroundColor = ConsoleColor.Magenta;
                             Console.Write("(6)");
                             Console.ResetColor();
-                            Console.WriteLine(" Celular\n");
+                            Console.Write(" Celular\n");
                             Console.Write(" Opcion: ");
                             op = Convert.ToInt32(Console.ReadLine());
 

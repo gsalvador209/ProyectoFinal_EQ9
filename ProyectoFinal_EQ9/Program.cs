@@ -94,6 +94,86 @@ namespace ProyectoPOO
                                             break;
                                         case 2:
                                             //MENU ADMIN
+                                            int cicloAdmin = 0;
+                                            int cicloSubMen = 0;
+                                            do
+                                            {
+                                                Console.WriteLine("\n *** Menú ADMIN ***");
+                                                Console.Write(" 1. Horarios" + "\n" +
+                                                                  " 2. Empresa" + "\n" +
+                                                                  " 3. Usuario" + "\n" +
+                                                                  " 4. Salir" + "\n" +
+                                                                  " --> ");
+                                                int adminOpc = int.Parse(Console.ReadLine());
+                                                Console.Clear();
+                                                int subOpc = 0;
+                                                switch (adminOpc)
+                                                {
+                                                    case 1:
+                                                        do
+                                                        {
+                                                            Console.Clear();
+                                                            Console.WriteLine("*** Menú Horario ***");
+                                                            Console.Write(" 1. Ver horario completo" + "\n" +
+                                                                          " 2. Descargar horarios" + "\n" +
+                                                                          " 3. Publicar horarios" + "\n" +
+                                                                          " 4. Asignar horarios" + "\n" +
+                                                                          " 5. Salir" + "\n" +
+                                                                          " --> ");
+                                                            subOpc = int.Parse(Console.ReadLine());
+                                                            switch (subOpc)
+                                                            {
+                                                                // Metodos
+                                                                case 1:
+                                                                    hr.horarioCompleto();
+                                                                    break;
+                                                                case 2:
+                                                                    hr.descargarHorario();
+                                                                    break;
+                                                                case 3:
+                                                                    hr.descargarHorario();
+                                                                    break;
+                                                                case 4:
+                                                                    hr.asignarHorario();
+                                                                    break;
+                                                                default:
+                                                                    cicloSubMen = 1;
+                                                                    break;
+                                                            }
+                                                            Console.WriteLine("Presione ENTER para continuar");
+                                                            Console.ReadLine();
+                                                        } while (cicloSubMen != 1);
+                                                        break;
+                                                    case 2:
+                                                        Console.WriteLine("*** Menú Empresa ***");
+                                                        Console.Write(" 1. Dar de alta empresa" + "\n" +
+                                                                      " 2. Editar empresa" + "\n" +
+                                                                      " 3. Agregar empresa" + "\n" +
+                                                                      " --> ");
+                                                        subOpc = int.Parse(Console.ReadLine());
+                                                        switch (subOpc)
+                                                        {
+                                                            // Metodos
+                                                            case 1:
+                                                                break;
+                                                            case 2:
+                                                                break;
+                                                            case 3:
+                                                                break;
+                                                        }
+                                                        Console.ReadLine();
+                                                        break;
+
+                                                    case 3:
+                                                        Console.WriteLine("Viendo todos los usuarios y admins...");
+                                                        Console.ReadLine();
+                                                        break;
+
+                                                    default:
+                                                        cicloAdmin = 1;
+                                                        break;
+                                                }
+                                            } while (cicloAdmin != 1);
                                             correcto = 1;
                                             break;
                                     }

@@ -27,7 +27,7 @@ namespace ProyectoPOO
         {
             try
             {
-                File.AppendAllText(archivo, (rep.nombre + "|" + rep.email  + "|" + rep.celular  + "|" + nombre + "|" +
+                File.AppendAllText(archivo, (rep.nombre + "|" + rep.email  + "|" + rep.celular  + "|" + nombre +
                    "|" + usuario + "|" + contraseña + "\n"));
             }
             catch

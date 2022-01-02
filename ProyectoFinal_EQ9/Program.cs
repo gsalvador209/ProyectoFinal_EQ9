@@ -11,6 +11,11 @@ namespace ProyectoPOO
         {
             int op, repetir, correcto = 0;
             string username, pasword;
+            Superadmin sa = new Superadmin();
+            Admin ad = new Admin();
+            Empresa emp = new Empresa();
+            Usuario user = new Usuario();
+            String usuarioSerializado;
 
             do
             {
@@ -94,6 +99,7 @@ namespace ProyectoPOO
                                     }
                                 } while (correcto == 0);
                                 break;
+
                             // USUARIO TIPO EMPRESA
                             case 2:
                                 Console.Clear();
@@ -184,44 +190,39 @@ namespace ProyectoPOO
                 Console.ResetColor();
                 Console.ReadLine();
             } while (repetir == 1);
+            int iniciarSesion(string un, string ps)
+            {
+
+                //BUSCA EN QUE ARCHIVO SE ECUENTRA EL USUARIO EN CASO CONTRARIO REGRESA UN 0
+                if (user.VerificarUsuarioyContraseña(un, ps, "superadmin.txt", 1))
+                {
+
+                    usuarioSerializado = user.GetStringLine(user.GetLine(un, "superadmin.txt"), "superadmin.txt");
+                    sa.DesSerializar(usuarioSerializado);
+
+                    Console.WriteLine("\n Bienvenidx superadministrador, " + sa.GetNombre());
+                    return 1;
+                }
+                else if (user.VerificarUsuarioyContraseña(un, ps, "admin.txt", 2))
+                {
+                    usuarioSerializado = user.GetStringLine(user.GetLine(un, "admin.txt"), "admin.txt");
+                    ad.DesSerializar(usuarioSerializado);
+
+                    Console.WriteLine("\n Bienvenidx administrador, " + ad.GetNombre());
+                    return 2;
+                }
+                else if (user.VerificarUsuarioyContraseña(un, ps, "empresa.txt", 3))
+                {
+                    usuarioSerializado = user.GetStringLine(user.GetLine(un, "empresa.txt"), "empresa.txt");
+                    emp.DesSerializar(usuarioSerializado);
+                    Console.WriteLine("\n Bienvenidx, " + emp.GetNombre());
+                    return 3;
+                }
+                return 0;
+            }
         }
 
-        static int iniciarSesion(string username,string pasword)
-        {
-            Superadmin sa = new Superadmin();
-            Admin ad = new Admin();
-            Empresa emp = new Empresa();
-            Usuario user = new Usuario();
-            String usuarioSerializado;
-
-
-            //BUSCA EN QUE ARCHIVO SE ECUENTRA EL USUARIO EN CASO CONTRARIO REGRESA UN 0
-            if (user.VerificarUsuarioyContraseña(username, pasword, "superadmin.txt", 1))
-            {
-
-                usuarioSerializado = user.GetStringLine(user.GetLine(username, "superadmin.txt"), "superadmin.txt");
-                sa.DesSerializar(usuarioSerializado);
-
-                Console.WriteLine("\n Bienvenidx superadministrador, " + sa.GetNombre());
-                return 1;
-            }
-            else if (user.VerificarUsuarioyContraseña(username, pasword, "admin.txt", 2))
-            {
-                usuarioSerializado = user.GetStringLine(user.GetLine(username, "admin.txt"), "admin.txt");
-                ad.DesSerializar(usuarioSerializado);
-
-                Console.WriteLine("\n Bienvenidx administrador, " + ad.GetNombre());
-                return 2;
-            }
-            else if (user.VerificarUsuarioyContraseña(username, pasword, "empresa.txt", 3))
-            {
-                usuarioSerializado = user.GetStringLine(user.GetLine(username, "empresa.txt"), "empresa.txt");
-                emp.DesSerializar(usuarioSerializado);
-                Console.WriteLine("\n Bienvenidx, " + emp.GetNombre());
-                return 3;
-            }
-            return 0;
-        }
+        
         static void crearCuenta()
         {
             Empresa empresa = new Empresa();
@@ -238,7 +239,6 @@ namespace ProyectoPOO
             Console.WriteLine();
             empresa.rep.SetCelular();
             Console.WriteLine();
-
             empresa.Serializar("empresas.txt");
         }
         static void menuEmpresa(string user)

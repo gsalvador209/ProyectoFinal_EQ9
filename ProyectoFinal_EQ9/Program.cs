@@ -219,17 +219,16 @@ namespace ProyectoPOO
                     Console.WriteLine("\n Bienvenidx administrador, " + ad.GetNombre());
                     return 2;
                 }
-                else if (user.VerificarUsuarioyContraseña(un, ps, "empresa.txt", 3))
+                else if (user.VerificarUsuarioyContraseña(un, ps, "empresas.txt", 3))
                 {
-                    usuarioSerializado = user.GetStringLine(user.GetLine(un, "empresa.txt"), "empresa.txt");
+                    usuarioSerializado = user.GetStringLine(user.GetLine(un, "empresas.txt"), "empresas.txt");
                     emp.DesSerializar(usuarioSerializado);
-                    Console.WriteLine("\n Bienvenidx, " + emp.GetNombre());
+                    Console.WriteLine("\n Bienvenidx, " + emp.rep.GetNombre());
                     return 3;
                 }
                 return 0;
             }
         }
-
         
         static void crearCuenta()
         {
@@ -287,11 +286,6 @@ namespace ProyectoPOO
                     Console.ResetColor();
                     Console.WriteLine(" Salir\n");
                     Console.Write(" Opcion: ");
-                    op = Convert.ToInt32(Console.ReadLine());
-                    Console.Write(" (1) Actualizar Datos\n\n" +
-                        " (2) Reservar Horario\n\n" +
-                        " (3) Ver Horarios\n\n" +
-                        " (4) Salir\n\nOpcion: ");
                     op = Convert.ToInt32(Console.ReadLine());
                     switch (op)
                     {

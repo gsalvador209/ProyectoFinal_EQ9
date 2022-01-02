@@ -19,9 +19,8 @@ namespace ProyectoPOO
         //*****MÉTODOS*****
         override public void SetNombre()
         {
-            this.nombre = Solicitar("Ingrese el nombre de la empresa: ");
+            this.nombre = Solicitar(" Ingrese el nombre de la empresa: ");
         }
-
         
         public void Serializar(string archivo)
         {
@@ -79,6 +78,5 @@ namespace ProyectoPOO
                 return null;
             }
         }
-
     }
 }

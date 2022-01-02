@@ -51,7 +51,7 @@ namespace ProyectoPOO
         public string Solicitar(string solicitud)  //Pide la entrada de un string no vacío. Imprime el argumento ingresado
         {
             string dato = "";
-            Console.WriteLine(solicitud);
+            Console.Write(solicitud);
             while (true)
             {
                 dato=Console.ReadLine();

@@ -222,7 +222,6 @@ namespace ProyectoPOO
                 return 0;
             }
         }
-
         
         static void crearCuenta()
         {

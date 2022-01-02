@@ -20,15 +20,15 @@ namespace ProyectoPOO
             do
             {
                 Console.Clear();
-                Console.Write("\n ¿Quieres iniciar sesion?\n\n\t");
+                Console.Write("\n\n\n\t");
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
                 Console.Write("(1)");
                 Console.ResetColor();
-                Console.Write(" Si\t");
+                Console.Write(" Iniciar sesión\t");
                 Console.BackgroundColor = ConsoleColor.DarkCyan;
                 Console.Write("(2)");
                 Console.ResetColor();
-                Console.Write(" No\n\n");
+                Console.Write(" Salir y Acerca De\n\n");
                 Console.Write("Opcion: ");
                 op = Convert.ToInt32(Console.ReadLine());
                 switch (op)
@@ -176,6 +176,13 @@ namespace ProyectoPOO
                         Console.BackgroundColor = ConsoleColor.DarkCyan;
                         Console.WriteLine("\n Saliendo del programa...");
                         Console.ResetColor();
+                        Console.WriteLine("\n\nProyecto Final\nProgramación Orientada a Objetos"
+                            + "\nGrupo 09 \nSemestre 2021-2 \nEquipo 9 \nIntegates:");
+                        Console.WriteLine("1. Chávez Villanueva Giovanni Salvador\n" +
+                            "2. Nava Alberto Vanessa\n" +
+                            "3. Perez Lagunas Bernardo\n" +
+                            "4. Pilares Garcia Heber Adan\n" +
+                            "5. Quero Bautista Yaxca Alexa\n");
                         repetir = 0;
                         break;
                     default:

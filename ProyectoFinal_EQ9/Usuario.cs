@@ -26,7 +26,7 @@ namespace ProyectoPOO
         virtual public void SetNombre() { 
             this.nombre = Solicitar(" Ingrese el nombre de usuario: "); 
         }
-        public void SetUsuario()
+        virtual public void SetUsuario()
         {
             this.usuario = Solicitar(" Ingrese un username: ");
         }
@@ -34,7 +34,6 @@ namespace ProyectoPOO
         {
             this.contraseña = Solicitar(" Ingrese una nueva constraseña: ");
         }
-
         public int GetRol() { 
             return rol;
         }

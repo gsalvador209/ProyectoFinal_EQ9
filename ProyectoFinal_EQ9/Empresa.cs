@@ -17,6 +17,14 @@ namespace ProyectoPOO
             SetRol(3);
         }
         //*****MÉTODOS*****
+        public string GetUser()
+        {
+            return GetUsuario();
+        }
+        public string GetPasword()
+        {
+            return GetContraseña();
+        }
         override public void SetNombre()
         {
             this.nombre = Solicitar(" Ingrese el nombre de la empresa: ");
@@ -78,14 +86,12 @@ namespace ProyectoPOO
                 return null;
             }
         }
-        public void ActualizarInfo(string empresa, string nombre, string email, string celular, string username, string pasword)
+        public void ActualizarInfo(string empresa, string nombre, string email, string celular)
         {
             this.nombre = empresa;
             this.rep.nombre = nombre;
             this.rep.celular = celular;
             this.rep.email = email;
-            this.usuario = username;
-            this.contraseña = pasword;
 
             Serializar("empresas.txt");
 

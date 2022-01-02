@@ -300,73 +300,84 @@ namespace ProyectoPOO
                     Console.WriteLine(" Salir\n");
                     Console.Write(" Opcion: ");
                     op = Convert.ToInt32(Console.ReadLine());
+
                     switch (op)
                     {
                         case 1:
-                            Console.Clear();
-                            Console.Write("\n Seleccione el dato que quiere actualizar: \n\n\t");
-                            Console.BackgroundColor = ConsoleColor.Magenta;
-                            Console.Write("(1)");
-                            Console.ResetColor();
-                            Console.Write(" Nombre Empresa\n\n\t");
-                            Console.BackgroundColor = ConsoleColor.Magenta;
-                            Console.Write("(2)");
-                            Console.ResetColor();
-                            Console.Write(" Username\n\n\t");
-                            Console.BackgroundColor = ConsoleColor.Magenta;
-                            Console.Write("(3)");
-                            Console.ResetColor();
-                            Console.Write(" Contraseña\n\n\t");
-                            Console.BackgroundColor = ConsoleColor.Magenta;
-                            Console.Write("(4)");
-                            Console.ResetColor();
-                            Console.Write(" Nombre Representante\n\n\t");
-                            Console.BackgroundColor = ConsoleColor.Magenta;
-                            Console.Write("(5)");
-                            Console.ResetColor();
-                            Console.Write(" Email\n\n\t");
-                            Console.BackgroundColor = ConsoleColor.Magenta;
-                            Console.Write("(6)");
-                            Console.ResetColor();
-                            Console.WriteLine(" Celular\n");
-                            Console.Write(" Opcion: ");
-                            op = Convert.ToInt32(Console.ReadLine());
-                            switch (op)
+                            do
                             {
-                                case 1:
-                                    emp.SetNombre();
-                                    break;
-                                case 2:
-                                    emp.SetUsuario();
-                                    break;
-                                case 3:
-                                    emp.SetContraseña();
-                                    break;
-                                case 4:
-                                    emp.rep.SetNombre();
-                                    break;
-                                case 5:
-                                    emp.rep.SetEmail();
-                                    break;
-                                case 6:
-                                    emp.rep.SetCelular();
-                                    break;
-                                default:
-                                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                                    Console.WriteLine("\n Dato no valido ingresalo de nuevo.");
-                                    Console.ResetColor();
-                                    Console.BackgroundColor = ConsoleColor.DarkGray;
-                                    Console.Write("\n Presione Enter para continuar....");
-                                    Console.ResetColor();
-                                    Console.ReadLine();
-                                    break;
-                            }
+                                Console.Clear();
+                                Console.Write("\n Seleccione el dato que quiere actualizar: \n\n\t");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.Write("(1)");
+                                Console.ResetColor();
+                                Console.Write(" Nombre Empresa\n\n\t");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.Write("(2)");
+                                Console.ResetColor();
+                                Console.Write(" Username\n\n\t");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.Write("(3)");
+                                Console.ResetColor();
+                                Console.Write(" Contraseña\n\n\t");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.Write("(4)");
+                                Console.ResetColor();
+                                Console.Write(" Nombre Representante\n\n\t");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.Write("(5)");
+                                Console.ResetColor();
+                                Console.Write(" Email\n\n\t");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.Write("(6)");
+                                Console.ResetColor();
+                                Console.WriteLine(" Celular\n");
+                                Console.Write(" Opcion: ");
+                                op = Convert.ToInt32(Console.ReadLine());
+                                switch (op)
+                                {
+                                    case 1:
+                                        emp.SetNombre();
+                                        break;
+                                    case 2:
+                                        emp.SetUsuario();
+                                        Console.WriteLine("menu: "+user);
+                                        break;
+                                    case 3:
+                                        emp.SetContraseña();
+                                        Console.WriteLine("menu: " + pasword);
+                                        break;
+                                    case 4:
+                                        emp.rep.SetNombre();
+                                        break;
+                                    case 5:
+                                        emp.rep.SetEmail();
+                                        break;
+                                    case 6:
+                                        emp.rep.SetCelular();
+                                        break;
+                                    default:
+                                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                                        Console.WriteLine("\n Dato no valido ingresalo de nuevo.");
+                                        Console.ResetColor();
+                                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                                        Console.Write("\n Presione Enter para continuar....");
+                                        Console.ResetColor();
+                                        Console.ReadLine();
+                                        break;
+                                }
+                            } while (op < 1 && op > 6);
                             email = emp.rep.GetEmail();
                             celular = emp.rep.GetCelular();
                             nombre = emp.rep.GetNombre();
                             empresa = emp.GetNombre();
+                            user = emp.GetUser();
                             emp.DeleteLine(emp.GetLine(user, "empresas.txt"), "empresas.txt");
-
+                            emp.ActualizarInfo(empresa, nombre, email, celular);
+                            Console.BackgroundColor = ConsoleColor.DarkGray;
+                            Console.Write("\n Presione Enter para continuar....");
+                            Console.ResetColor();
+                            Console.ReadLine();
                             break;
                         case 2:
                             break;

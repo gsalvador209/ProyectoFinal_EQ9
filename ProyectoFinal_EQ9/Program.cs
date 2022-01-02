@@ -90,6 +90,7 @@ namespace ProyectoPOO
                                             break;
                                         case 1:
                                             //MENU DE SUPERADMIN
+                                            menuSuperAdmin(sa);
                                             correcto = 1;
                                             break;
                                         case 2:
@@ -388,6 +389,53 @@ namespace ProyectoPOO
                             break;
                     }
                 } while (repetir == 0);
+            }
+        }
+
+        static void menuSuperAdmin(Superadmin sa)
+        {
+            int op=0;
+            Console.Clear();
+            Console.Write("\n\n Seleccione una opcion.\n\n\t");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("(1)");
+            Console.ResetColor();
+            Console.Write("Crear Administrador\n\n\t");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("(2)");
+            Console.ResetColor();
+            Console.Write("Eliminar un administrador\n\n\t");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.Write("(3)");
+            Console.ResetColor();
+            Console.Write("Cerrar sesión.\n\n\t");
+            
+            while (true)
+            {
+                try
+                {
+                    Console.Write(" Opcion: ");
+                    op = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    continue;
+                }
+                    
+                switch (op)
+                {
+                    case 1:
+                        sa.AgregarAdmin();
+                        break;
+                    case 2:
+                        sa.EliminarAdmin();
+                        break;
+                    case 3:
+                            return;
+                    default:
+                        Console.WriteLine("Ingresa una opción existente");
+                        break;
+                }
             }
         }
     }

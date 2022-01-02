@@ -21,7 +21,6 @@ namespace ProyectoPOO
         {
             this.nombre = Solicitar(" Ingrese el nombre de la empresa: ");
         }
-
         
         public void Serializar(string archivo)
         {
@@ -79,6 +78,5 @@ namespace ProyectoPOO
                 return null;
             }
         }
-
     }
 }

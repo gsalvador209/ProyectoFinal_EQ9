@@ -212,11 +212,11 @@ namespace ProyectoPOO
                     Console.WriteLine("\n Bienvenidx administrador, " + ad.GetNombre());
                     return 2;
                 }
-                else if (user.VerificarUsuarioyContraseña(un, ps, "empresa.txt", 3))
+                else if (user.VerificarUsuarioyContraseña(un, ps, "empresas.txt", 3))
                 {
-                    usuarioSerializado = user.GetStringLine(user.GetLine(un, "empresa.txt"), "empresa.txt");
+                    usuarioSerializado = user.GetStringLine(user.GetLine(un, "empresas.txt"), "empresas.txt");
                     emp.DesSerializar(usuarioSerializado);
-                    Console.WriteLine("\n Bienvenidx, " + emp.GetNombre());
+                    Console.WriteLine("\n Bienvenidx, " + emp.rep.GetNombre());
                     return 3;
                 }
                 return 0;

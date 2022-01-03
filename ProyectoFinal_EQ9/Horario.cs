@@ -42,11 +42,11 @@ namespace ProyectoPOO
 
         public string getHorario()
         {
-            string cadenaHorario = "Horarios:\n";
+            string cadenaHorario = "\n Horarios:\n";
             int contador = 1;
             foreach (var item in horario)
             {
-                cadenaHorario += contador + ". " + item + "\n";
+                cadenaHorario += " (" + contador + ") " + item + "\n";
                 contador++;
             }
             return cadenaHorario;
@@ -95,20 +95,15 @@ namespace ProyectoPOO
             foreach (var item in horario)
             {
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
-                Console.Write(item + "  \t");
+                Console.Write(item + "   ");
                 Console.ResetColor();
             }
             Console.Write("\n");
             foreach (var item in Salas)
             {
-                Console.Write("  ");
-                Console.BackgroundColor = ConsoleColor.DarkBlue;
-                Console.Write("(" + i + ")");
-                Console.ResetColor();
-                Console.WriteLine("  "+item.getNombreSala() + "\t" + item.getValidacion());
+                Console.WriteLine("   "+item.getNombreSala() + "\t" + item.getValidacion());
                 i++;
             }
-            Console.WriteLine();
             Console.BackgroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine(" *** Datos de las conferencias ***");
             Console.ResetColor();
@@ -149,6 +144,7 @@ namespace ProyectoPOO
         public void asignarHorario()
         {
             Boolean swap = true;
+            int i,j = 1;
             int horarioOPC = 0;
             int numSala = 0;
             int aforoSala = 0;
@@ -157,16 +153,22 @@ namespace ProyectoPOO
                 int contador = 0;
                 horarioCompleto();
                 Console.WriteLine(getHorario());
-                Console.Write("--> ");
+                Console.Write(" Opcion:  ");
                 horarioOPC = int.Parse(Console.ReadLine());
 
                 //Introduce la sala
-                Console.WriteLine("Salas disponibles:" + "\n" +
-                                   "Sala 2" + "\n" +
-                                   "Sala 3" + "\n" +
-                                   "Sala 4" + "\n" +
-                                   "! Por el momento las otras salas se encuentran ocupadas.");
-                Console.WriteLine("Introduce el número de la sala:");
+                Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Salas disponibles:");
+                Console.ResetColor();
+                Console.WriteLine();
+
+                for(i = 0;i < Salas.Count();i++)
+                {
+                    Salas.ElementAt(i).salasDisponibles(horarioOPC,j);
+                    j += 1;
+                }
+
                 numSala = int.Parse(Console.ReadLine()); // ! Se utilizara para modificar el index
 
                 foreach (var item in Salas)

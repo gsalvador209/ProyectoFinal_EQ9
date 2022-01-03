@@ -36,7 +36,17 @@ namespace ProyectoPOO
                     break;
             }
         }
-
+        public void salasDisponibles(int index,int i)
+        {
+            if (horario[index - 1].CompareTo("x") != 0)
+            {
+                Console.Write(" ");
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.Write("(" + i + ")");
+                Console.ResetColor();
+                Console.WriteLine(" " + nombreSala + "\n");
+            }
+        }
         public Boolean setHorario(int index){
             Boolean swap = true;
             if(horario[index]=="x"){
@@ -59,7 +69,7 @@ namespace ProyectoPOO
         }
 
         public string getValidacion(){
-            return "\t" + horario[0] + "\t" + horario[1] + "\t\t" + horario[2] + "\t\t" + horario[3] + "\t" + horario[4] + "\t\t" + horario[5] + "\n";
+            return "     " + horario[0] + "    \t\t" + horario[1] + "    \t\t   " + horario[2] + "  \t\t    " + horario[3] + " \t\t     " + horario[4] + " \t\t      " + horario[5] + "\n";
         }
 
 

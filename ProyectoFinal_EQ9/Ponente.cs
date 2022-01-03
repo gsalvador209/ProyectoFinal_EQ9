@@ -60,7 +60,7 @@ namespace ProyectoPOO
                    " Tiempo de Conferencia: " + this.tiempoConferencia + "\n" +
                    " Numero de Sala: " + this.numeroSala + "\n" +
                    " Aforo: " + this.aforoConferencia + "\n" +
-                   " Horario: " + this.horarioConferencia + "\n";
+                   " Horario: " + this.horarioConferencia + "\n\n";
         }
     }
 }

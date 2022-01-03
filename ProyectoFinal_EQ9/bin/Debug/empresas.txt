@@ -1,4 +1,4 @@
 Juan Carlos|juan.carlos@O_depot.mx|557799442211|Office Depot|ofice_dep|contra123
 Roberto Hernández|Jose.pedro@lenovo.mx|5544997711|Lenovo|Lenov12|12345
 Heber Adan|Hhebercito@outlook.com|5521756104|Lenovo|hapg|BMTH.24.O
-Juanito Perez|hrbchico@gmail.com|215478|Lenovo|heberaadan|BMTH.24.O
+Heber Adan|hrbchico@gmail.com|5521756104|Lenovo|heberaadan|BMTH.24.O

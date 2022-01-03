@@ -106,7 +106,7 @@ namespace ProyectoPOO
                             // USUARIO TIPO EMPRESA
                             case 2:
                                 Console.Clear();
-                                /*
+                                
                                 Console.Write("\n ¿Ya tiene una cuenta?\n\n\t");
                                 Console.BackgroundColor = ConsoleColor.DarkCyan;
                                 Console.Write("(1)");
@@ -121,7 +121,6 @@ namespace ProyectoPOO
                                 switch (op)
                                 {
                                     case 1:
-                                */
                                         do
                                         {
                                             Console.Clear();
@@ -166,12 +165,12 @@ namespace ProyectoPOO
                                                     break;
                                             }
                                         } while (correcto == 0);
-                                       // break;
+                                       break;
                                     // CREA CUENTA DE EMPRESA
-                                   // case 2:
-                                       // crearCuenta();
-                                     //   break;
-                                //}
+                                   case 2:
+                                      CrearCuentaEmpresa();
+                                     break;
+                                }
                                 break;
                         }
                         repetir = 1;
@@ -258,7 +257,10 @@ namespace ProyectoPOO
             empresa.SetUsuario();
             Console.WriteLine();
             empresa.SetContraseña();
-            Console.Write("\n Ahora Ingrese los datos del representante de la empresa\n\n");
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
+            Console.Write("\n Ahora Ingrese los datos del representante de la empresa");
+            Console.ResetColor();
+            Console.WriteLine("\n");
             empresa.rep.SetNombre();
             Console.WriteLine();
             empresa.rep.SetEmail();
@@ -557,18 +559,18 @@ namespace ProyectoPOO
                                 Console.WriteLine(" Celular\n");
                                 Console.Write(" Opcion: ");
                                 op = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
                                 switch (op)
                                 {
                                     case 1:
                                         emp.SetNombre();
                                         break;
                                     case 2:
+                                        user = emp.GetUser();
                                         emp.SetUsuario();
-                                        Console.WriteLine("menu: "+user);
                                         break;
                                     case 3:
                                         emp.SetContraseña();
-                                        Console.WriteLine("menu: " + pasword);
                                         break;
                                     case 4:
                                         emp.rep.SetNombre();
@@ -594,7 +596,6 @@ namespace ProyectoPOO
                             celular = emp.rep.GetCelular();
                             nombre = emp.rep.GetNombre();
                             empresa = emp.GetNombre();
-                            user = emp.GetUser();
                             emp.DeleteLine(emp.GetLine(user, "empresas.txt"), "empresas.txt");
                             emp.ActualizarInfo(empresa, nombre, email, celular);
                             Console.BackgroundColor = ConsoleColor.DarkGray;
@@ -679,8 +680,6 @@ namespace ProyectoPOO
                             }
                             break;
                         }
-
-
                         switch (opc)
                         {
                             case 1:
@@ -711,12 +710,8 @@ namespace ProyectoPOO
                                 Console.WriteLine("Ingresa una opción disponible.");
                                 break;
                         }
-                    
                     }
-
-
                     break;
-
             }
         }
     }

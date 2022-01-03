@@ -67,7 +67,7 @@ namespace ProyectoPOO
         public bool VerificarUsuarioyContraseña(string user,string pass,string nombreArchivo,int rol)
         {   //Verifica que el usuario y contraseña registrados en nombreArchivo coincidan, depende del rol
             Superadmin sA;
-            Admin aD; ;
+            Admin aD; 
             Empresa emp;
             
             string temp, cmpUser = "", cmpPass = "";
@@ -133,16 +133,54 @@ namespace ProyectoPOO
         virtual public int GetLine(string username, string nombreArchivo) //Obtiene el número de linea donde se encuentra el username en un archivo
         {
             int r = -1;
-            string linea;
+            string linea,user;
+            Superadmin sp = new Superadmin();
+            Admin ad = new Admin();
+            Empresa em = new Empresa();
             try
             {
                 StreamReader f = new StreamReader(nombreArchivo);
-                for (int i = 0; !f.EndOfStream; i++)
+
+                if (nombreArchivo.Equals("admin.txt"))
                 {
-                    linea = f.ReadLine();
-                    if (linea.Contains(username))
+                    for (int i = 0; !f.EndOfStream; i++)
                     {
-                        r = i;
+                        linea = f.ReadLine();
+                        ad.DesSerializar("admin.txt");
+                        user = ad.GetUsuario();
+                        if (user.Contains(username))
+                        {
+                            return i;
+                        }
+                    }
+                }
+                else if (nombreArchivo.Equals("superadmin.txt"))
+                {
+                    for (int i = 0; !f.EndOfStream; i++)
+                    {
+                        linea = f.ReadLine();
+                        sp.DesSerializar("superadmin.txt");
+                        user = sp.GetUsuario();
+                        if (user.Contains(username))
+                        {
+                            return i;
+                        }
+                    }
+                }
+                else if (nombreArchivo.Equals("empresas.txt"))
+                {
+                    for (int i = 0; !f.EndOfStream; i++)
+                    {
+                        linea = f.ReadLine();
+                        em.DesSerializar("empresas.txt");
+                        user = em.GetUsuario();
+                        if (user.Contains(username))
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("\n r: " + i);
+                            Console.ResetColor();
+                            return i;
+                        }
                     }
                 }
                 f.Close();
@@ -152,7 +190,7 @@ namespace ProyectoPOO
                 Console.WriteLine("No se encontraron los archivos necesarios: "+ e);
 
             }
-            return r;
+            return -1;
         }
         public string GetStringLine(int line, string nombreArchivo) //Obtiene la linea indicada de un archivo
         {
@@ -184,6 +222,7 @@ namespace ProyectoPOO
                 StreamWriter sw = File.CreateText(nombreArchivo);
                 sw.Close();
                 //********************************************
+
 
                 for (i = 0; i < backupLines.Length; i++)
                 {

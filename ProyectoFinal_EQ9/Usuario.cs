@@ -146,7 +146,7 @@ namespace ProyectoPOO
                     for (int i = 0; !f.EndOfStream; i++)
                     {
                         linea = f.ReadLine();
-                        ad.DesSerializar("admin.txt");
+                        ad.DesSerializar(linea);
                         user = ad.GetUsuario();
                         if (user.Contains(username))
                         {
@@ -159,7 +159,7 @@ namespace ProyectoPOO
                     for (int i = 0; !f.EndOfStream; i++)
                     {
                         linea = f.ReadLine();
-                        sp.DesSerializar("superadmin.txt");
+                        sp.DesSerializar(linea);
                         user = sp.GetUsuario();
                         if (user.Contains(username))
                         {
@@ -172,13 +172,10 @@ namespace ProyectoPOO
                     for (int i = 0; !f.EndOfStream; i++)
                     {
                         linea = f.ReadLine();
-                        em.DesSerializar("empresas.txt");
+                        em.DesSerializar(linea);
                         user = em.GetUsuario();
                         if (user.Contains(username))
                         {
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
-                            Console.WriteLine("\n r: " + i);
-                            Console.ResetColor();
                             return i;
                         }
                     }

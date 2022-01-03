@@ -28,7 +28,10 @@ namespace ProyectoPOO
         }
         virtual public void SetUsuario()
         {
-            this.usuario = Solicitar(" Ingrese un username: ");
+            do
+            {
+                this.usuario = Solicitar(" Ingrese un username: ");
+            } while (Verificar(this.usuario));
         }
         public void SetContraseña()
         {
@@ -132,7 +135,6 @@ namespace ProyectoPOO
 
         virtual public int GetLine(string username, string nombreArchivo) //Obtiene el número de linea donde se encuentra el username en un archivo
         {
-            int r = -1;
             string linea,user;
             Superadmin sp = new Superadmin();
             Admin ad = new Admin();
@@ -235,6 +237,21 @@ namespace ProyectoPOO
                 return -1;
             }
         }
+        public Boolean Verificar(string username)
+        {
+            int ad,sp,em;
+            sp = GetLine(username, "superadmin.txt");
+            ad = GetLine(username, "admin.txt");
+            em = GetLine(username, "empresas.txt");
+            if (sp != -1 || ad != -1 || em != -1)
+            {
+                Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(" Este usuario ya esta registrado, eliga otro.\n");
+                Console.ResetColor();
+                return true;
+            }
+            return  false;
+        }
     }
-
 }

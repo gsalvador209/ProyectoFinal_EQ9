@@ -2,4 +2,3 @@ Juan Carlos|juan.carlos@O_depot.mx|557799442211|Office Depot|ofice_dep|contra123
 Roberto Hernández|Jose.pedro@lenovo.mx|5544997711|Lenovo|Lenov12|12345
 Regio Gonzales|regio1@gmail.com|5565987414|Lenovo|hebercito|123456
 Juanito Perez|hrbchico@gmail.com|5521756104|Lenovo|hbrchico|BMTH.24.O
-Juan Enrique|hrbchico@gmail.com|5521756104|Lenovo|hbrchico|BMTH.24.O

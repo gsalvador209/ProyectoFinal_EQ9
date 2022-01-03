@@ -160,7 +160,7 @@ namespace ProyectoPOO
                                                     break;
                                                 case 3:
                                                     // MENU EMPRESA
-                                                    menuEmpresa(username,pasword);
+                                                    menuEmpresa(username,pasword,hr,emp);
                                                     correcto = 1;
                                                     break;
                                             }
@@ -251,22 +251,58 @@ namespace ProyectoPOO
         static void CrearCuentaEmpresa()
         {
             Empresa empresa = new Empresa();
-            Console.WriteLine("\n Ingrese los siguientes datos para crear la cuenta\n ");
-            empresa.SetNombre();
-            Console.WriteLine();
-            empresa.SetUsuario();
-            Console.WriteLine();
-            empresa.SetContraseña();
-            Console.BackgroundColor = ConsoleColor.DarkMagenta;
-            Console.Write("\n Ahora Ingrese los datos del representante de la empresa");
-            Console.ResetColor();
-            Console.WriteLine("\n");
-            empresa.rep.SetNombre();
-            Console.WriteLine();
-            empresa.rep.SetEmail();
-            Console.WriteLine();
-            empresa.rep.SetCelular();
-            Console.WriteLine();
+            int repetir = 0,op;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\n Ingrese los siguientes datos para crear la cuenta\n ");
+                empresa.SetNombre();
+                Console.WriteLine();
+                empresa.SetUsuario();
+                Console.WriteLine();
+                empresa.SetContraseña();
+                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                Console.Write("\n Ahora Ingrese los datos del representante de la empresa");
+                Console.ResetColor();
+                Console.WriteLine("\n");
+                empresa.rep.SetNombre();
+                Console.WriteLine();
+                empresa.rep.SetEmail();
+                Console.WriteLine();
+                empresa.rep.SetCelular();
+                Console.WriteLine();
+
+                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine(" ¿Los datos ingresados son correctos? ");
+                Console.ResetColor();
+                empresa.Datos();
+
+                do
+                {
+                    Console.Write("\n\t");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("(1)");
+                    Console.ResetColor();
+                    Console.Write(" Si\t");
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.Write("(2)");
+                    Console.ResetColor();
+                    Console.Write(" No\n\n");
+                    Console.Write("Opcion: ");
+                    op = Convert.ToInt32(Console.ReadLine());
+                } while (op < 1 || op > 2);
+
+                if(op == 1)
+                {
+                    repetir = 1;
+                }
+                else if(op == 2)
+                {
+                    repetir = 0;
+                }
+
+            } while (repetir == 0);
+
             empresa.Serializar("empresas.txt");
 
             Console.BackgroundColor = ConsoleColor.Green;
@@ -489,9 +525,9 @@ namespace ProyectoPOO
             } while (cicloAdmin != 1);
          }
 
-        static void menuEmpresa(string user,string pasword)
+        static void menuEmpresa(string user,string pasword,Horario horario,Empresa emp)
         {
-            Empresa emp = new Empresa();
+            Ponente pon = new Ponente();
             int repetir = 0, op;
             string email = "", celular = "", nombre = "", empresa = "";
 
@@ -591,7 +627,7 @@ namespace ProyectoPOO
                                         Console.ReadLine();
                                         break;
                                 }
-                            } while (op < 1 && op > 6);
+                            } while (op < 1 || op > 6);
                             email = emp.rep.GetEmail();
                             celular = emp.rep.GetCelular();
                             nombre = emp.rep.GetNombre();
@@ -604,6 +640,10 @@ namespace ProyectoPOO
                             Console.ReadLine();
                             break;
                         case 2:
+                            do
+                            {
+                                Console.Clear(); horario.asignarHorario();
+                            } while (repetir == 0);
                             break;
                         case 3:
                             break;

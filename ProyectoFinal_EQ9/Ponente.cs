@@ -15,6 +15,10 @@ namespace ProyectoPOO
 
         private String horarioConferencia;
 
+        public Ponente()
+        {
+
+        }
         public Ponente(String nombrePonente, String nombreConferencia, String tiempoConferencia, int numeroSala, String horario, int aforoConferencia)
         {
             this.nombrePonente = nombrePonente;
@@ -51,12 +55,12 @@ namespace ProyectoPOO
 
         public String toString()
         {
-            return "\n" + "Nombre Ponente: " + this.nombrePonente + "\n" +
-                   "Nombre Conferencia: " + this.nombreConferencia + "\n" +
-                   "Tiempo de Conferencia: " + this.tiempoConferencia + "\n" +
-                   "Numero de Sala: " + this.numeroSala + "\n" +
-                   "Aforo: " + this.aforoConferencia + "\n" +
-                   "Horario: " + this.horarioConferencia + "\n";
+            return "\n" + " Nombre Ponente: " + this.nombrePonente + "\n" +
+                   " Nombre Conferencia: " + this.nombreConferencia + "\n" +
+                   " Tiempo de Conferencia: " + this.tiempoConferencia + "\n" +
+                   " Numero de Sala: " + this.numeroSala + "\n" +
+                   " Aforo: " + this.aforoConferencia + "\n" +
+                   " Horario: " + this.horarioConferencia + "\n";
         }
     }
 }

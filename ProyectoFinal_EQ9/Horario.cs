@@ -10,7 +10,7 @@ namespace ProyectoPOO
     {
         private int IdHorario;
         private string nombreSala;
-        private string[] horario = new string[] { "9-10am", "10-11:30am", "12-2pm", "2:10-3:30pm", "3:40-5pm", "5-7pm" };
+        private string[] horario = new string[] { "9:00 - 10:00 am", "10:00 - 11:30 am", "12:00 - 2:00 pm", "2:10 - 3:30 pm", "3:40 - 5:00 pm", "5:00 - 7:00pm" };
         private string empresaSala; // Nombre que aparto la sala
         private string nombreConferencia;
 
@@ -86,20 +86,32 @@ namespace ProyectoPOO
 
         public void horarioCompleto()
         {
+            int i = 1;
             Console.Clear();
-            Console.WriteLine("* Nota: Ctro = Centro\n");
-            Console.Write("Horario: " + "\t");
+            Console.Write("\n * Nota: Ctro = Centro\n\n     ");
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.Write(" Horario: " + "\t");
+            Console.ResetColor();
             foreach (var item in horario)
             {
-                Console.Write(item + "\t");
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.Write(item + "  \t");
+                Console.ResetColor();
             }
             Console.Write("\n");
             foreach (var item in Salas)
             {
-                Console.Write(item.getNombreSala() + "\t" + item.getValidacion());
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.Write("(" + i + ")");
+                Console.ResetColor();
+                Console.WriteLine("  "+item.getNombreSala() + "\t" + item.getValidacion());
+                i++;
             }
-
-            Console.WriteLine("\n*** Datos de las conferencias ***");
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine(" *** Datos de las conferencias ***");
+            Console.ResetColor();
             foreach (var item in Agendas)
             {
                 Console.WriteLine(item.toString());

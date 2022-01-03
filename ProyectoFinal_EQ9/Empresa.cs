@@ -101,5 +101,14 @@ namespace ProyectoPOO
             Console.WriteLine("\n Los datos han sido actualizados correctamente");
             Console.ResetColor();
         }
+
+        public void Datos()
+        {
+            Console.WriteLine("\n Username: " + GetUsuario() + "\n" +
+                "\n Nombre de la Empresa: "+GetNombre()+"\n"+
+                "\n Nombre del Representante: "+rep.GetNombre()+"\n"+
+                "\n Email: "+rep.GetEmail()+"\n"+
+                "\n Celular: "+rep.GetCelular());
+        }
     }
 }

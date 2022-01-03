@@ -216,12 +216,6 @@ namespace ProyectoPOO
         {
             string[] backupLines;
             int i;
-            Console.WriteLine();
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(" linea: " + line);
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(" archivo: " + nombreArchivo);
-            Console.ResetColor();
             try
             {
                 backupLines = File.ReadAllLines(nombreArchivo);

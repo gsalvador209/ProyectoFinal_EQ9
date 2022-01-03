@@ -152,6 +152,7 @@ namespace ProyectoPOO
                         user = ad.GetUsuario();
                         if (user.Contains(username))
                         {
+                            f.Close();
                             return i;
                         }
                     }
@@ -165,6 +166,7 @@ namespace ProyectoPOO
                         user = sp.GetUsuario();
                         if (user.Contains(username))
                         {
+                            f.Close();
                             return i;
                         }
                     }
@@ -178,6 +180,7 @@ namespace ProyectoPOO
                         user = em.GetUsuario();
                         if (user.Contains(username))
                         {
+                            f.Close();
                             return i;
                         }
                     }
@@ -213,6 +216,12 @@ namespace ProyectoPOO
         {
             string[] backupLines;
             int i;
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine(" linea: " + line);
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine(" archivo: " + nombreArchivo);
+            Console.ResetColor();
             try
             {
                 backupLines = File.ReadAllLines(nombreArchivo);
@@ -221,7 +230,6 @@ namespace ProyectoPOO
                 StreamWriter sw = File.CreateText(nombreArchivo);
                 sw.Close();
                 //********************************************
-
 
                 for (i = 0; i < backupLines.Length; i++)
                 {
@@ -232,8 +240,9 @@ namespace ProyectoPOO
                 }
                 return 0;
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine("\n "+e.Message);
                 return -1;
             }
         }

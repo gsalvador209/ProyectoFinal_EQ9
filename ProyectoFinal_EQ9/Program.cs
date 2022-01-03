@@ -560,13 +560,13 @@ namespace ProyectoPOO
                                 Console.Write(" Opcion: ");
                                 op = Convert.ToInt32(Console.ReadLine());
                                 Console.WriteLine();
+                                user = emp.GetUser();
                                 switch (op)
                                 {
                                     case 1:
                                         emp.SetNombre();
                                         break;
                                     case 2:
-                                        user = emp.GetUser();
                                         emp.SetUsuario();
                                         break;
                                     case 3:

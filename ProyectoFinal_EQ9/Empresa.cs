@@ -39,8 +39,10 @@ namespace ProyectoPOO
             }
             catch
             {
-                Console.WriteLine("Error al guardar la empresa");
-
+                Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(" Error al guardar la empresa.");
+                Console.ResetColor();
                 return;
             }
         }

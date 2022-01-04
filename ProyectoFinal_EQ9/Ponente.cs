@@ -10,7 +10,7 @@ namespace ProyectoPOO
         private String nombrePonente;
         private String nombreConferencia;
         private String tiempoConferencia; // horas o minutos
-        private int numeroSala; // número de la sala de la conferencia
+        private string numeroSala; // número de la sala de la conferencia
         private int aforoConferencia; // número de personas que fueren asistir a la conferencia.
 
         private String horarioConferencia;
@@ -19,7 +19,7 @@ namespace ProyectoPOO
         {
 
         }
-        public Ponente(String nombrePonente, String nombreConferencia, String tiempoConferencia, int numeroSala, String horario, int aforoConferencia)
+        public Ponente(String nombrePonente, String nombreConferencia, String tiempoConferencia, string numeroSala, String horario, int aforoConferencia)
         {
             this.nombrePonente = nombrePonente;
             this.nombreConferencia = nombreConferencia;
@@ -33,7 +33,7 @@ namespace ProyectoPOO
             return this.tiempoConferencia;
         }
 
-        public int getNumeroSala()
+        public string getNumeroSala()
         {
             return this.numeroSala;
         }
@@ -59,8 +59,8 @@ namespace ProyectoPOO
                    " Nombre Conferencia: " + this.nombreConferencia + "\n" +
                    " Tiempo de Conferencia: " + this.tiempoConferencia + "\n" +
                    " Numero de Sala: " + this.numeroSala + "\n" +
-                   " Aforo: " + this.aforoConferencia + "\n" +
-                   " Horario: " + this.horarioConferencia + "\n\n";
+                   " Aforo: " + this.aforoConferencia + " personas\n" +
+                   " Horario: " + this.horarioConferencia +"\n";
         }
     }
 }

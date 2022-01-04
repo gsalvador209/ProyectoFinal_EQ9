@@ -87,7 +87,6 @@ namespace ProyectoPOO
         public void horarioCompleto()
         {
             int i = 1;
-            Console.Clear();
             Console.Write("\n * Nota: Ctro = Centro\n\n     ");
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.Write(" Horario: " + "\t");
@@ -158,7 +157,7 @@ namespace ProyectoPOO
                     Console.Write(" Opcion:  ");
                     horarioOPC = int.Parse(Console.ReadLine());
                     Console.WriteLine();
-                } while (horarioOPC < 1 || horarioOPC > (horario.Length - 1));
+                } while (horarioOPC < 1 || horarioOPC > horario.Length);
                 
                 //Introduce la sala
                 Console.BackgroundColor = ConsoleColor.DarkCyan;
@@ -189,11 +188,18 @@ namespace ProyectoPOO
                 }
                 else
                 {
-                    Console.WriteLine("\n ¡ Lo sentimos, todas las salas estan ocupadas ! :(");
+                    Console.WriteLine(" ¡ Lo sentimos, todas las salas estan ocupadas ! :(");
+                    Console.BackgroundColor = ConsoleColor.DarkGray;
+                    Console.Write("\n Presione Enter para continuar....");
+                    Console.ResetColor();
+                    Console.ReadLine();
                 }
                 
             } while (swap);
 
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("\n Agrega los datos del Ponente.");
+            Console.ResetColor();
             Console.Write("\n Nombre del ponente:  ");
             string nombrePonente = Console.ReadLine();
             Console.Write("\n Nombre de la conferencia: ");
@@ -204,7 +210,7 @@ namespace ProyectoPOO
             int aforoConferencia;
             do
             {
-                Console.Write("\n Aforo de la conferencia: ");
+                Console.Write("\n Aforo de la conferencia (max. "+aforoSala+" personas): ");
                 aforoConferencia = int.Parse(Console.ReadLine());
 
                 if (aforoConferencia <= aforoSala)
@@ -218,7 +224,11 @@ namespace ProyectoPOO
                     
             } while (ciclo != 1);
 
-            Agendas.AddLast(new Ponente(nombrePonente, nombreConferencia, tiempoConferencia, numSala, horario[horarioOPC], aforoConferencia));
+            Agendas.AddLast(new Ponente(nombrePonente, nombreConferencia, tiempoConferencia, Salas.ElementAt(salasDisponibles.ElementAt(numSala - 1)).getNombreSala(), horario[horarioOPC-1], aforoConferencia));
+
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("\n ¡ La "+ Salas.ElementAt(salasDisponibles.ElementAt(numSala - 1)).getNombreSala()+" fue apartada con exito en el horario "+horario[horarioOPC-1]+" !");
+            Console.ResetColor();
         }
     }
 }

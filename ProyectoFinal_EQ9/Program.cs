@@ -517,7 +517,6 @@ namespace ProyectoPOO
                         Console.WriteLine("Viendo todos los usuarios y admins...");
                         Console.ReadLine();
                         break;
-
                     default:
                         cicloAdmin = 1;
                         break;
@@ -591,7 +590,11 @@ namespace ProyectoPOO
                                 Console.BackgroundColor = ConsoleColor.Magenta;
                                 Console.Write("(6)");
                                 Console.ResetColor();
-                                Console.WriteLine(" Celular\n");
+                                Console.Write(" Celular\n\n\t");
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.Write("(7)");
+                                Console.ResetColor();
+                                Console.WriteLine(" Salir\n");
                                 Console.Write(" Opcion: ");
                                 op = Convert.ToInt32(Console.ReadLine());
                                 Console.WriteLine();
@@ -616,6 +619,32 @@ namespace ProyectoPOO
                                     case 6:
                                         emp.rep.SetCelular();
                                         break;
+                                    case 7:
+                                        Console.WriteLine(" ¿Estas seguro? ");
+                                        Console.Write("\n\t");
+                                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                        Console.Write("(1)");
+                                        Console.ResetColor();
+                                        Console.Write(" Si\t");
+                                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                                        Console.Write("(2)");
+                                        Console.ResetColor();
+                                        Console.Write(" No\n\n");
+                                        do
+                                        {
+                                            Console.Write("Opcion: ");
+                                            op = Convert.ToInt32(Console.ReadLine());
+
+                                        } while (op < 1 || op > 2);
+                                        if (op == 1)
+                                        {
+                                            op = 7;
+                                        }
+                                        else if (op == 2)
+                                        {
+                                            op = 0;
+                                        }
+                                        break;
                                     default:
                                         Console.BackgroundColor = ConsoleColor.DarkRed;
                                         Console.WriteLine("\n Dato no valido ingresalo de nuevo.");
@@ -626,23 +655,36 @@ namespace ProyectoPOO
                                         Console.ReadLine();
                                         break;
                                 }
-                            } while (op < 1 || op > 6);
-                            email = emp.rep.GetEmail();
-                            celular = emp.rep.GetCelular();
-                            nombre = emp.rep.GetNombre();
-                            empresa = emp.GetNombre();
-                            emp.DeleteLine(emp.GetLine(user, "empresas.txt"), "empresas.txt");
-                            emp.ActualizarInfo(empresa, nombre, email, celular);
+                            } while (op < 1 || op > 7);
+                            if (op != 7)
+                            {
+                                email = emp.rep.GetEmail();
+                                celular = emp.rep.GetCelular();
+                                nombre = emp.rep.GetNombre();
+                                empresa = emp.GetNombre();
+                                emp.DeleteLine(emp.GetLine(user, "empresas.txt"), "empresas.txt");
+                                emp.ActualizarInfo(empresa, nombre, email, celular);
+                                Console.BackgroundColor = ConsoleColor.DarkGray;
+                                Console.Write("\n Presione Enter para continuar....");
+                                Console.ResetColor();
+                                Console.ReadLine();
+                            }
+                            break;
+                        case 2:
+                            Console.Clear();
+                            horario.asignarHorario();
                             Console.BackgroundColor = ConsoleColor.DarkGray;
                             Console.Write("\n Presione Enter para continuar....");
                             Console.ResetColor();
                             Console.ReadLine();
                             break;
-                        case 2:
-                            Console.Clear();
-                            horario.asignarHorario();
-                            break;
                         case 3:
+                            Console.Clear();
+                            horario.horarioCompleto();
+                            Console.BackgroundColor = ConsoleColor.DarkGray;
+                            Console.Write("\n Presione Enter para continuar....");
+                            Console.ResetColor();
+                            Console.ReadLine();
                             break;
                         case 4:
                             repetir = 1;

@@ -66,8 +66,5 @@ namespace ProyectoPOO
         public string getValidacion(){
             return "     " + horario[0] + "    \t\t" + horario[1] + "    \t\t   " + horario[2] + "  \t\t    " + horario[3] + " \t\t     " + horario[4] + " \t\t      " + horario[5] + "\n";
         }
-
-
-
     }
 }

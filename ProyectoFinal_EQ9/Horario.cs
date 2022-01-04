@@ -143,70 +143,82 @@ namespace ProyectoPOO
         }
         public void asignarHorario()
         {
+            LinkedList<int> salasDisponibles = new LinkedList<int>();
             Boolean swap = true;
-            int i,j = 1;
+            int i,disponibles = 0;
             int horarioOPC = 0;
             int numSala = 0;
             int aforoSala = 0;
             do
             {
-                int contador = 0;
                 horarioCompleto();
                 Console.WriteLine(getHorario());
-                Console.Write(" Opcion:  ");
-                horarioOPC = int.Parse(Console.ReadLine());
-
+                do
+                {
+                    Console.Write(" Opcion:  ");
+                    horarioOPC = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                } while (horarioOPC < 1 || horarioOPC > (horario.Length - 1));
+                
                 //Introduce la sala
-                Console.WriteLine();
                 Console.BackgroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("Salas disponibles:");
                 Console.ResetColor();
                 Console.WriteLine();
 
-                for(i = 0;i < Salas.Count();i++)
+                for (i = 0; i < Salas.Count(); i++)
                 {
-                    Salas.ElementAt(i).salasDisponibles(horarioOPC,j);
-                    j += 1;
-                }
-
-                numSala = int.Parse(Console.ReadLine()); // ! Se utilizara para modificar el index
-
-                foreach (var item in Salas)
-                {
-                    if (contador == (numSala - 1))
+                    if (Salas.ElementAt(i).salasDisponibles(horarioOPC,disponibles))
                     {
-                        swap = item.setHorario(horarioOPC - 1);
-                        aforoSala = item.getAforo();
+                        disponibles += 1;
+                        salasDisponibles.AddLast(i);
                     }
-                    contador++;
                 }
+
+                if (salasDisponibles.Count() != 0)
+                {
+                    Console.Write(" ! Por el momento las otras salas se encuentran ocupadas. \n");
+                    do
+                    {
+                        Console.Write("\n Selecciona la sala: ");
+                        numSala = int.Parse(Console.ReadLine()); // ! Se utilizara para modificar el index
+                    } while (numSala < 1 || numSala > disponibles);
+
+                    swap = Salas.ElementAt(salasDisponibles.ElementAt(numSala - 1)).setHorario(horarioOPC -1);
+                    aforoSala = Salas.ElementAt(salasDisponibles.ElementAt(numSala - 1)).getAforo();
+                }
+                else
+                {
+                    Console.WriteLine("\n ¡ Lo sentimos, todas las salas estan ocupadas ! :(");
+                }
+                
             } while (swap);
 
-            Console.Write("Nombre del ponente --> ");
+            Console.Write("\n Nombre del ponente:  ");
             string nombrePonente = Console.ReadLine();
-            Console.Write("Nombre de la conferencia --> ");
+            Console.Write("\n Nombre de la conferencia: ");
             string nombreConferencia = Console.ReadLine();
-            Console.Write("Tiempo de la conferencia --> ");
+            Console.Write("\n Tiempo de la conferencia (colocarlo en horas 'hrs' o minutos 'min'): ");
             string tiempoConferencia = Console.ReadLine();
             int ciclo = 0;
             int aforoConferencia;
             do
             {
-                Console.Write("Aforo de la conferencia --> ");
+                Console.Write("\n Aforo de la conferencia: ");
                 aforoConferencia = int.Parse(Console.ReadLine());
 
-                if (aforoConferencia < aforoSala)
+                if (aforoConferencia <= aforoSala)
                     ciclo = 1;
                 else
-                    Console.WriteLine("El aforo de la conferencia es mayor al aforo de la sala");
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("\n El aforo de la conferencia es mayor al aforo de la sala.");
+                    Console.ResetColor();
+                }
+                    
             } while (ciclo != 1);
 
             Agendas.AddLast(new Ponente(nombrePonente, nombreConferencia, tiempoConferencia, numSala, horario[horarioOPC], aforoConferencia));
         }
-
-
-
-
-
     }
 }

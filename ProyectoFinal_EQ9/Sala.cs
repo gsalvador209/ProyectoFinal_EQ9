@@ -36,27 +36,22 @@ namespace ProyectoPOO
                     break;
             }
         }
-        public void salasDisponibles(int index,int i)
+        public Boolean salasDisponibles(int index,int i)
         {
             if (horario[index - 1].CompareTo("x") != 0)
             {
                 Console.Write(" ");
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
-                Console.Write("(" + i + ")");
+                Console.Write("(" + (i+1) + ")");
                 Console.ResetColor();
                 Console.WriteLine(" " + nombreSala + "\n");
+                return true;
             }
+            return false;
         }
         public Boolean setHorario(int index){
-            Boolean swap = true;
-            if(horario[index]=="x"){
-                Console.WriteLine("Introduce un horario que no este ocupado");
-            }
-            else{
-                swap = false;
-                horario[index]="x";
-            }
-            return swap;
+            horario[index]="x";
+            return false;
         }
         public string getNombreSala()
         {

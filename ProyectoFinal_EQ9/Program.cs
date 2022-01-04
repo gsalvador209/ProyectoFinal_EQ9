@@ -527,7 +527,6 @@ namespace ProyectoPOO
 
         static void menuEmpresa(string user,string pasword,Horario horario,Empresa emp)
         {
-            Ponente pon = new Ponente();
             int repetir = 0, op;
             string email = "", celular = "", nombre = "", empresa = "";
 
@@ -640,10 +639,8 @@ namespace ProyectoPOO
                             Console.ReadLine();
                             break;
                         case 2:
-                            do
-                            {
-                                Console.Clear(); horario.asignarHorario();
-                            } while (repetir == 0);
+                            Console.Clear();
+                            horario.asignarHorario();
                             break;
                         case 3:
                             break;
